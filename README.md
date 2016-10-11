@@ -1,4 +1,4 @@
-# setgov
+# react-chrome-redux-boilerplate
 
 1) Install Node modules with 'npm install'  
 2) Run 'npm run build' to build the bundle and watch for updates.  
