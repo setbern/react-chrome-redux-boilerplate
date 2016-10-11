@@ -6,7 +6,6 @@ module.exports = {
 		content: './content/index.js'
 	},
 		 	
-	
 	output: {
 		path: 'assets',
 		filename: "[name].js",
