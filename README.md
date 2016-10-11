@@ -40,9 +40,9 @@ Get familiar with the folder structure
 ###General Info
 Unlike other boiler plates the development is production ready.
 
-Meaning , you begin with bundeling up the files with webpack on start of development and continue with a webpack-dev-server that listens to any changes you make and updates the bundles with `watch` option in webpack.config.js file.
+Meaning , editing files from outside the assets folder will be reflected in the produciton bundle.
 
-Advantage of this process is using one webpack file to bundle up all three of the main parts of your chrome extension popup, background page and content script.
+Advantage of this process is using one webpack file to bundle up all three of the main parts of your chrome extension popup, background page and content script. This makes it extremly easy to test right away right to the chrome extension.
 
 Cons of this process , need to manually dubplicate Index.html from `reacat-chrome-redux-boilerplate/popup/index.html` to `react-chrome-redux-boilerplate/assets/`
 
@@ -56,19 +56,13 @@ Begin with running command:
 
 this will create the basic bundle of the three files and output them to the assets folder in the top of the root directory
 
-Follow up with opening up a second terminal tab and running:
-
-	$ npm run start
-
-This will start a wepack-dev-server that watches all the changes associated with 
-	
+Webpack watches over these entry points and reflects the changes in the production bundle 	
 	./popup/index.js
 
 	./background/src/index.js
 
 	./content/src/index.js
 
-webpack-dev-server will update the bundle files real time on change with inline and hot-reloading 
 
 ##Popup development
 
@@ -100,7 +94,7 @@ You will see the changes upon reopening the popup or refreashing either backgrou
 Would be estatic to hear feedback from all, Just open an issue and lets your thoughts out!
 
 
-###Huge shout out to @tshaddix much of this from based off his examples he gave at soCal Talk and for builidng react-chrome-redux
+###Huge shout out to @tshaddix much of this is based off his examples he gave at soCal Talk and for blessing us with react-chrome-redux
 
 
 
