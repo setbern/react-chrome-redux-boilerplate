@@ -1,6 +1,6 @@
 # react-chrome-redux-boilerplate
 
-##General Info
+##Overview
 
 react-chrome-redux-boilerplate is boiler plate made with the intent of bare minumun boiler plate for building chrome extension with react. This boilerplate also uses redux for state handeling through out the whole app ( background page , content script and popup). All three files are bundled up together with webpack.config.js.
 
@@ -38,3 +38,45 @@ Get familiar with the folder structure
 	|-- /components/						# Files making up the UI and functionality of Popup
 	|-- /css/								# Holds all the styleing for popup
 ```
+
+##Usage 
+
+###General Info
+Unlike other boiler plates the development is production ready.
+
+Meaning , you begin with bundeling up the files with webpack on start of development and continue with a webpack-dev-server that listens to any changes you make and updates the bundles with `watch` option in webpack.config.js file.
+
+Advantage of this process is using one webpack file to bundle up all three of the main parts of your chrome extension popup, background page and content script.
+
+Cons of this process , need to manually dubplicate Index.html from `reacat-chrome-redux-boilerplate/popup/index.html` to `react-chrome-redux-boilerplate/assets/
+
+##Begin development
+
+Open up terminal and cd to project
+
+Begin with running command:
+
+	npm run build
+
+this will create the basic bundle of the three files and output them to the assets folder in the top of the root directory
+
+Follow up with opening up a second terminal tab and running:
+
+	npm run start
+
+This will start a wepack-dev-server that watches all the changes in either 
+	
+	./popup/index.js
+
+	./background/src/index.js
+
+	./content/src/index.js
+
+webpack-dev-server will update the bundle files real time on change with inline and hot-reloading 
+
+
+
+
+
+
+
