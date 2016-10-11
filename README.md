@@ -57,6 +57,7 @@ Begin with running command:
 this will create the basic bundle of the three files and output them to the assets folder in the top of the root directory
 
 Webpack watches over these entry points and reflects the changes in the production bundle 	
+
 	./popup/index.js
 
 	./background/src/index.js
@@ -80,11 +81,10 @@ Configure the reducers in `background/src/reducers`
 
 ##Content script development
 
-Content script is injected into every page visted
+Content script is inject programatilly through the background page in `background/index.js`
 
-Can alter this in `assets/manifest.json`
+Script is injected on First tab created and any tab change ( basically whenever you change url )
 
-Content script can also be injected programatically through the background page
 
 ##Load unpack extension with `react-chrome-redux-boilerplate/assets`
 
