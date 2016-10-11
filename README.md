@@ -74,20 +74,29 @@ This will start a wepack-dev-server that watches all the changes associated with
 
 webpack-dev-server will update the bundle files real time on change with inline and hot-reloading 
 
-###popup development
+##Popup development
 
 popup follows normal react logic using `popup/index.js as the entry point. This file also defines the port where it connects with the background page uisng react-chrome-redux
 
 simply develop as a normal react UI application intergrated with redux
 
-###background page development
+##Background page development
 
 The background page holds the redux store communicating it between the content script and popup page
 
+Redux store is created in `background/src/index.js`
+	
 Configure the reducers in `background/src/reducers`
 
+##Content script development
 
-###Load unpack extension with `react-chrome-redux-boilerplate/assets`
+Content script is injected into every page visted
+
+Can alter this in `assets/manifest.json`
+
+Content script can also be injected programatically through the background page
+
+##Load unpack extension with `react-chrome-redux-boilerplate/assets`
 
 You will see the changes upon reopening the popup or refreashing either background or local page content script is being injected to
 
