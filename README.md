@@ -24,12 +24,13 @@ Begin by running command:
 	$ npm run build
 
 Webpack will create a bundle for background, content, and popop inside the '/assets' directory.  
-KEEP YOUR TERMINAL WINDOW OPEN AFTER RUNNING THIS COMMAND!
-the `watch:true` flag automatically updates bundles with any changes made to popup, content, or background in real time.
+KEEP YOUR TERMINAL WINDOW OPEN AFTER RUNNING THIS COMMAND!  
+the `watch:true` flag automatically updates bundles with any changes made to popup, content, or background in real time.  
 This allows your chrome extension to refresh automatically, similar to hot reloading with webpack-dev-server.  
 
 Add the `/assets` directory to chrome as an extension and everything is be good to go.  
-Try making some changes to `popup/components/App.js`.  Any changes should be visibile inside your Chrome extension automatically.  
+Try making some changes to `popup/components/App.js`.  
+Any changes should be visibile inside your Chrome extension automatically.  
 
 
 ##Directory Layout
