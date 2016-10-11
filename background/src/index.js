@@ -6,16 +6,6 @@ import { alias, wrapStore } from 'react-chrome-redux';
 
 
 
-// const aliases = {
-//   // this key is the name of the action to proxy, the value is the action
-//   // creator that gets executed when the proxied action is received in the
-//   // background
-//   'user-clicked-alias': () => {
-//     // this call can only be made in the background script
-//     chrome.notifications.create(...);
-
-//   };
-// };
 const logger = createLogger({
     level: 'info',
     collapsed: true
@@ -35,3 +25,19 @@ wrapStore(store, {
 });
 
 
+
+// ////////////////////////////////////////////
+// //Inject content Script on each tab change//
+// ////////////////////////////////////////////
+// chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
+//   console.log('content script injected')
+//   chrome.tabs.executeScript(null, {file: "content.js"});
+// }); 
+
+/////////////////////////////////////////////////////
+//Inject content script when first tab is activated//
+///////////////////////////////////////////////////// 
+chrome.tabs.onActivated.addListener(function(tabId, changeInfo, tab) {
+  console.log('content script injected')
+  chrome.tabs.executeScript(null, {file: "content.js"});
+});

@@ -24869,7 +24869,8 @@
 					'div',
 					null,
 					'Click Count: ',
-					this.props.count
+					this.props.count,
+					'test test yasss'
 				);
 			}
 		}]);

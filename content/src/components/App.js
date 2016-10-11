@@ -9,6 +9,7 @@ class App extends Component {
   componentDidMount() {
     //basic clicker to log redux is working across platform
     document.addEventListener('click', () => {
+      console.log('testing')
       this.props.dispatch({
         type: 'ADD_COUNT'
       });
@@ -18,7 +19,8 @@ class App extends Component {
   render() {
     return (
       <div>
-        Count: {this.props.count}
+       does this hot reload as well?
+       nahh yee plz work yass how does it know it chanved, does hot reloading not work with content
       </div>
     );
   }

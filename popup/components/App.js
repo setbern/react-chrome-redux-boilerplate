@@ -11,6 +11,7 @@ class App extends Component {
 	    return (
 	      <div>
 	        Click Count: {this.props.count}
+	        test test yasss
 	      </div>
     	);
   }

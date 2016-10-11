@@ -24852,6 +24852,7 @@
 
 	      //basic clicker to log redux is working across platform
 	      document.addEventListener('click', function () {
+	        console.log('testing');
 	        _this2.props.dispatch({
 	          type: 'ADD_COUNT'
 	        });
@@ -24863,8 +24864,7 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        'Count: ',
-	        this.props.count
+	        'does this hot reload as well? nahh yee plz work yass how does it know it chanved, does hot reloading not work with content'
 	      );
 	    }
 	  }]);

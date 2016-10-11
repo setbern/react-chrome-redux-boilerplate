@@ -64,19 +64,9 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	// const aliases = {
-	//   // this key is the name of the action to proxy, the value is the action
-	//   // creator that gets executed when the proxied action is received in the
-	//   // background
-	//   'user-clicked-alias': () => {
-	//     // this call can only be made in the background script
-	//     chrome.notifications.create(...);
-
-	//   };
-	// };
 	var logger = (0, _reduxLogger2.default)({
-	    level: 'info',
-	    collapsed: true
+	  level: 'info',
+	  collapsed: true
 	});
 
 	var middleware = [_reduxThunk2.default, logger];
@@ -84,20 +74,36 @@
 	var store = (0, _redux.compose)(_redux.applyMiddleware.apply(undefined, middleware))(_redux.createStore)(_reducers2.default);
 
 	(0, _reactChromeRedux.wrapStore)(store, {
-	    portName: 'example'
+	  portName: 'example'
+	});
+
+	// ////////////////////////////////////////////
+	// //Inject content Script on each tab change//
+	// ////////////////////////////////////////////
+	// chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
+	//   console.log('content script injected')
+	//   chrome.tabs.executeScript(null, {file: "content.js"});
+	// }); 
+
+	/////////////////////////////////////////////////////
+	//Inject content script when first tab is activated//
+	///////////////////////////////////////////////////// 
+	chrome.tabs.onActivated.addListener(function (tabId, changeInfo, tab) {
+	  console.log('content script injected');
+	  chrome.tabs.executeScript(null, { file: "content.js" });
 	});
 	;
 
 	var _temp = function () {
-	    if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-	        return;
-	    }
+	  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+	    return;
+	  }
 
-	    __REACT_HOT_LOADER__.register(logger, 'logger', '/Users/BernSternWhoEarns/Documents/react-chrome-redux-boilerplate/background/src/index.js');
+	  __REACT_HOT_LOADER__.register(logger, 'logger', '/Users/BernSternWhoEarns/Documents/react-chrome-redux-boilerplate/background/src/index.js');
 
-	    __REACT_HOT_LOADER__.register(middleware, 'middleware', '/Users/BernSternWhoEarns/Documents/react-chrome-redux-boilerplate/background/src/index.js');
+	  __REACT_HOT_LOADER__.register(middleware, 'middleware', '/Users/BernSternWhoEarns/Documents/react-chrome-redux-boilerplate/background/src/index.js');
 
-	    __REACT_HOT_LOADER__.register(store, 'store', '/Users/BernSternWhoEarns/Documents/react-chrome-redux-boilerplate/background/src/index.js');
+	  __REACT_HOT_LOADER__.register(store, 'store', '/Users/BernSternWhoEarns/Documents/react-chrome-redux-boilerplate/background/src/index.js');
 	}();
 
 	;
@@ -1203,6 +1209,7 @@
 
 	  switch (action.type) {
 	    case 'ADD_COUNT':
+	      console.log('testing background page ');
 	      return state + (action.payload || 1);
 	    default:
 	      return state;

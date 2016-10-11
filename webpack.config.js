@@ -12,7 +12,10 @@ module.exports = {
 		filename: "[name].js",
 		publicPath: '/assets'
 	},
-
+	devServer: {
+		contentBase: ['./popup', './background', './content']
+		
+	},
 	watch:true,
 
 	module: {

@@ -1,5 +1,6 @@
 # react-chrome-redux-boilerplate
 
+
 ##Overview
 
 react-chrome-redux-boilerplate is boiler plate made with the intent of bare minumun boiler plate for building chrome extension with react. This boilerplate also uses redux for state handeling through out the whole app ( background page , content script and popup). All three files are bundled up together with webpack.config.js.
@@ -104,7 +105,7 @@ You will see the changes upon reopening the popup or refreashing either backgrou
 Would be estatic to hear feedback from all, Just open an issue and lets your thoughts out!
 
 
-
+###Huge shout out to @tshaddix much of this from based off his examples he gave at soCal Talk and for builidng react-chrome-redux
 
 
 
