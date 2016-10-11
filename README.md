@@ -14,11 +14,11 @@ Would be estatic to hear feedback from all, Just open an issue and lets your tho
 
 Clone latest repo by running:
 
-	https://github.com/brgarciarivas/react-chrome-redux-boilerplate.git
+	$ git clone https://github.com/brgarciarivas/react-chrome-redux-boilerplate.git
 
-	cd react-chrome-redux-boilerplate
+	$ cd react-chrome-redux-boilerplate
 
-##Install all dependencies, run: `npm install`
+##Install all dependencies, run: `$ npm install`
 
 This will install all dependencies and developer tools
 
@@ -48,7 +48,7 @@ Meaning , you begin with bundeling up the files with webpack on start of develop
 
 Advantage of this process is using one webpack file to bundle up all three of the main parts of your chrome extension popup, background page and content script.
 
-Cons of this process , need to manually dubplicate Index.html from `reacat-chrome-redux-boilerplate/popup/index.html` to `react-chrome-redux-boilerplate/assets/
+Cons of this process , need to manually dubplicate Index.html from `reacat-chrome-redux-boilerplate/popup/index.html` to `react-chrome-redux-boilerplate/assets/`
 
 ##Begin development
 
@@ -56,15 +56,15 @@ Open up terminal and cd to project
 
 Begin with running command:
 
-	npm run build
+	$ npm run build
 
 this will create the basic bundle of the three files and output them to the assets folder in the top of the root directory
 
 Follow up with opening up a second terminal tab and running:
 
-	npm run start
+	$ npm run start
 
-This will start a wepack-dev-server that watches all the changes in either 
+This will start a wepack-dev-server that watches all the changes associated with 
 	
 	./popup/index.js
 
@@ -73,6 +73,28 @@ This will start a wepack-dev-server that watches all the changes in either
 	./content/src/index.js
 
 webpack-dev-server will update the bundle files real time on change with inline and hot-reloading 
+
+###popup development
+
+popup follows normal react logic using `popup/index.js as the entry point. This file also defines the port where it connects with the background page uisng react-chrome-redux
+
+simply develop as a normal react UI application intergrated with redux
+
+###background page development
+
+The background page holds the redux store communicating it between the content script and popup page
+
+Configure the reducers in `background/src/reducers`
+
+
+###Load unpack extension with `react-chrome-redux-boilerplate/assets`
+
+You will see the changes upon reopening the popup or refreashing either background or local page content script is being injected to
+
+
+Would be estatic to hear feedback from all, Just open an issue and lets your thoughts out!
+
+
 
 
 
