@@ -2,8 +2,8 @@ module.exports = {
 
 	entry: {
 		popup: './popup/index.js',
-		background: './background/src/index.js',
-		content: './content/src/index.js'
+		background: './background/index.js',
+		content: './content/index.js'
 	},
 		 	
 	
