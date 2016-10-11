@@ -1,0 +1,9 @@
+.header {
+  height: 50px;
+  background-color: red;
+}
+body {
+  height: 1000px;
+  width: 325px;
+  background-color: #eee;
+}
