@@ -1,6 +1,6 @@
 {
   "name": "react-chrome-redux-boilerplate",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "./popup/index.js",
   "scripts": {
