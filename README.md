@@ -25,11 +25,9 @@ Get familiar with the folder structure
 ```
 |-- /assets/								# Contains all webpack bundles and static assets.  Used for development AND production.
 |-- /background/							# Holds all files associated with the background page of a chrome extension
-	|-- /src/								# Entry point for bundle of the background page
-		|-- /reducers/						# Reducers for redux
+	|-- /reducers/							# Reducers for redux
 |-- /content/								# Holds all files associated with the content script of a chrome extension
-	|-- /src/								# Entry point for the bundle of content script
-		|-- /components/					# Any components used by the content script 
+	|-- /components/						# Any components used by the content script 
 |-- /popup/									# Holds all files associated with popup of a chrome extension
 	|-- /components/						# Files making up the UI and functionality of Popup
 	|-- /css/								# Holds all the styling for popup
@@ -73,7 +71,7 @@ simply develop as a normal react UI application intergrated with redux
 
 ##Background page development
 
-The background page holds the redux store communicating it between the content script and popup page
+The background page holds the redux store communicating, it between the content script and popup page
 
 Redux store is created in `background/src/index.js`
 	

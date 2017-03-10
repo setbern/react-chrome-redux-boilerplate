@@ -3,6 +3,9 @@ logs
 *.log
 npm-debug.log*
 
+assets/background.js
+assets/content.js
+assets/popup.js
 
 # Dependency directories
 node_modules
