@@ -2,14 +2,13 @@
 
 
 ##Overview
-
-This boilerplate uses redux for state handeling throughout the whole app ( background page , content script and popup). All three files are bundled together using webpack (webpack.config.js).
-
-The same webpack bundles are used for both development and production.  Bundles and static files such as images and fonts are hosted in '/assets'.
+While other boiler plates for React chrome extensions exist, many of them contain additional dependencies or middleware which are not entirely necessary.
+react-chrome-redux-boilerplate contains the bare minimum needed to get started with Chrome Extension development using React, Redux, and React-Router.
+Install dependencies, build the webpack bundle, add the 'assets' folder as a chrome extension and you're good to go.  
 
 ## Getting Started
 
-Clone latest repo and install dependencies:
+Clone latest repo, install dependencies:
 
 	$ git clone https://github.com/brgarciarivas/react-chrome-redux-boilerplate.git
 
@@ -18,9 +17,23 @@ Clone latest repo and install dependencies:
 	$ npm install
 
 
-##Directory Layout
+##Usage
 
-Get familiar with the folder structure
+Begin by running command:
+
+	$ npm run build
+
+Webpack will create a bundle for background, content, and popop inside the '/assets' directory.  
+KEEP YOUR TERMINAL WINDOW OPEN AFTER RUNNING THIS COMMAND!  
+the `watch:true` flag automatically updates bundles with any changes made to popup, content, or background in real time.  
+This allows your chrome extension to refresh automatically, similar to hot reloading with webpack-dev-server.  
+
+Add the `/assets` directory to chrome as an extension and everything is be good to go.  
+Try making some changes to `popup/components/App.js`.  
+Any changes should be visibile inside your Chrome extension automatically.  
+
+
+##Directory Layout
 
 ```
 |-- /assets/								# Contains all webpack bundles and static assets.  Used for development AND production.
@@ -33,69 +46,16 @@ Get familiar with the folder structure
 	|-- /css/								# Holds all the styling for popup
 ```
 
-##Usage 
-
-###General Info
-Unlike other boiler plates the development is production ready.
-
-Meaning , editing files from outside the assets folder will be reflected in the produciton bundle.
-
-Advantage of this process is using one webpack file to bundle up all three of the main parts of your chrome extension popup, background page and content script. This makes it extremly easy to test right away right to the chrome extension.
-
-Cons of this process , need to manually dubplicate Index.html from `reacat-chrome-redux-boilerplate/popup/index.html` to `react-chrome-redux-boilerplate/assets/`
-
-##Begin development
-
-Open up terminal and cd to project
-
-Begin with running command:
-
-	$ npm run build
-
-this will create the basic bundle of the three files and output them to the assets folder in the top of the root directory
-
-Webpack watches over these entry points and reflects the changes in the production bundle 	
-
-	./popup/index.js
-
-	./background/src/index.js
-
-	./content/src/index.js
-
-
 ##Popup development
+Popup follows normal react logic using `popup/index.js` as the entry point. This file also defines the port used to connect to the background page.
+Simply develop as a normal react UI application with redux.
 
-popup follows normal react logic using `popup/index.js as the entry point. This file also defines the port where it connects with the background page uisng react-chrome-redux
-
-simply develop as a normal react UI application intergrated with redux
-
-##Background page development
-
-The background page holds the redux store communicating, it between the content script and popup page
-
-Redux store is created in `background/src/index.js`
-	
-Configure the reducers in `background/src/reducers`
+The background page manages the redux store and communication between the content script and popup page
+Redux store resides in `background/index.js`
+Configure reducers in `background/reducers`
 
 ##Content script development
+The background page programatically injects any required content scripts via `background/index.js`
+Scripts are injected when browser tabs are created or changed ( basically whenever you change url ).
 
-Content script is inject programatilly through the background page in `background/index.js`
-
-Script is injected on First tab created and any tab change ( basically whenever you change url )
-
-
-##Load unpack extension with `react-chrome-redux-boilerplate/assets`
-
-You will see the changes upon reopening the popup or refreashing either background or local page content script is being injected to
-
-
-Would be estatic to hear feedback from all, Just open an issue and lets your thoughts out!
-
-
-###Huge shout out to @tshaddix much of this is based off his examples he gave at soCal Talk and for blessing us with react-chrome-redux
-
-
-
-
-
-
+###Huge shout out to @tshaddix! Much of this is based off examples given at SoCal Talk and ract-chrome-redux
