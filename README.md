@@ -58,4 +58,17 @@ Configure reducers in `background/reducers`
 The background page programatically injects any required content scripts via `background/index.js`
 Scripts are injected when browser tabs are created or changed ( basically whenever you change url ).
 
+
+##Using the CLI tools
+
+- Run `npm install -g` to enable `setlife` CLI tools
+- `setlife create-component <name>` creates a standard component in /src/components
+- Add the option `--redux` or `-r` for Redux-enabled components with `mapStateToProps` and `mapDispatchToProps` functions connected to the component
+- Add the option `--style` or `-s` to generate the corresponding stylesheet and add it to the index
+---
+- `setlife create-model <name>` creates a standard model in /api/models
+- Add the option `--type` or `-t` to create the associated Bookshelf-GraphQL Type
+
+
+
 ###Huge shout out to @tshaddix! Much of this is based off examples given at SoCal Talk and react-chrome-redux

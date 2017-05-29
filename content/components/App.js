@@ -19,8 +19,7 @@ class App extends Component {
   render() {
     return (
       <div>
-       does this hot reload as well?
-       nahh yee plz work yass how does it know it chanved, does hot reloading not work with content
+        Welcome to Setlife Chrome Extension Boilerplate
       </div>
     );
   }
