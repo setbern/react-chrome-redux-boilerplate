@@ -1,0 +1,91 @@
+// normalize
+html {
+    .colors(@white, @dark-gray);
+    font-size: @defaultFontSize;
+    font-family: Avenir;
+}
+
+body {
+    margin:0;
+    padding:0;
+    cursor:default;
+    width: @windowWidth;
+    overflow-x:hidden;
+    overflow-y: hidden;
+    height: @windowHeight;
+}
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+a {
+    color:inherit;
+    background-color: transparent;
+    text-decoration:none;
+    cursor: pointer;
+    &:hover, &:active {
+        color:inherit;
+        outline: 0;
+    }
+}
+
+.app {
+    height: @windowHeight;
+    font-family: Avenir;
+    -webkit-overflow-scrolling: touch;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+    display: block;
+}
+
+img {
+    border: 0;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    color: inherit;
+    font: inherit;
+    margin: 0;
+}
+
+button,
+html input[type='button'],
+input[type='reset'],
+input[type='submit'] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+
+button[disabled],
+html input[disabled] {
+    cursor: default;
+}
+
+button::-moz-focus-inner, 
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+input, input:focus, textarea {
+    border: none;
+    background: none;
+    font-size: @defaultFontSize * 1.1;
+    outline: 0;
+}

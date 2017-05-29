@@ -1,0 +1,287 @@
+// .grid
+    // .flex-#
+    // .flex-xx-#
+    // .flex-xx-auto
+
+// breakpoints
+
+
+@xs: 480px;
+@sm: 768px;
+@md: 992px;
+@st: 1080px;
+@lg: 1200px;
+@xl: 1600px;
+
+// grid
+@columns: 12;
+@flex-max-width: 100%;
+
+// spacing
+@grid-spacing: 1rem;
+@grid-padding: 1rem;
+@cell-spacing-sm: (@grid-spacing / 2);
+@cell-spacing-md: @grid-spacing;
+@cell-spacing-lg: (@grid-spacing * 2);
+
+// ------------------
+// flex
+// ------------------
+
+.flexContainer(@direction: row, @wrap: nowrap) {
+    display: flex;
+    position: relative;
+    flex-direction: @direction;
+    flex-wrap: @wrap;
+    flex-flow: @direction @wrap;
+}
+
+.flex(@grow: 1, @shrink: 1, @basis: auto) {
+    flex: @grow @shrink @basis;
+}
+
+.row {
+    .flexContainer(row, wrap);
+}
+
+.row-reverse {
+    .flexContainer(row-reverse, wrap);
+}
+
+.row-nowrap {
+    .flexContainer(row, nowrap);
+}
+
+.row-reverse-nowrap {
+    .flexContainer(row-reverse, nowrap);
+}
+
+.column {
+    .flexContainer(column, nowrap);
+}
+
+.column-reverse {
+    .flexContainer(column-reverse, nowrap);
+}
+
+.flex {
+    .flex();
+}
+.flex-self {
+    .flex(0,1,auto);
+}
+.flex-shrink {
+    .flex(1,1,0);
+}
+.flex-center {
+    .flex(0,1,auto);
+    margin: auto;
+}
+
+.align-start {
+    align-items: flex-start;
+}
+.align-center {
+    align-items: center;
+}
+.align-end {
+    align-items: flex-end;
+}
+.justify-start {
+    .justifyContentStart();
+}
+.justify-center {
+    .justifyContentCenter();
+}
+.justify-end {
+    .justifyContentEnd();
+}
+.justify-space-around {
+    .justifyContentSpaceAround();
+}
+.justify-space-between {
+    .justifyContentSpaceBetween();
+}
+
+.justifyContentStart() {
+    text-align: left;
+    justify-content: flex-start;
+}
+
+.justifyContentEnd() {
+    text-align: right;
+    justify-content: flex-end;
+}
+
+.justifyContentCenter() {
+    text-align: center;
+    justify-content: center;
+}
+
+.justifyContentSpaceAround() {
+    text-align: justify;
+    justify-content: space-around;
+}
+
+.justifyContentSpaceBetween() {
+    text-align: justify;
+    justify-content: space-between;
+}
+
+// ------------------
+// grid generators
+// ------------------
+
+.makeGrid(@class: ~'') {
+    .loopColumns(@columns, @class, width);
+}
+
+.calcColumns(@index, @class, @type) when (@type = width) and (@index > 0) {
+    .@{class}@{index} {
+        width: percentage((@index / @columns));
+        *width: percentage((@index / @columns)) - 0.1;
+    }
+}
+
+.loopColumns(@index, @class, @type) when (@index >= 0) {
+    .calcColumns(@index, @class, @type);
+    .loopColumns((@index - 1), @class, @type);
+}
+
+// default setup
+.setupCols() {
+    .column();
+    width: 100%;
+    vertical-align: top;
+    padding: @grid-spacing;
+}
+
+// auto cols default
+.setupAutoCols() {
+    .flex(1,1,0px);
+    width: auto!important;
+    max-width: 100%;
+}
+
+// ------------------
+// order generators
+// ------------------
+
+.order(@order: 0) {
+    order: @order;
+}
+
+.makeGridOrderHelpers() {
+    .loopGridOrderHelpers(@columns);
+}
+
+.loopGridOrderHelpers(@index) when (@index >= 0) {
+    .grid-order-@{index} {
+        .order(@index);
+    }
+
+    // next iteration
+    .loopGridOrderHelpers((@index - 1));
+}
+
+// ------------------
+// grids
+// ------------------
+
+.grid {
+    display: flex;
+    padding: @grid-padding;
+    margin: 0;
+    position: relative;
+    width: 100%;
+    max-width: @flex-max-width;
+
+    // for nested grids
+    &.grid {
+        .flex(1,1,auto);
+    }
+
+    // for lists
+    list-style-type: none;
+}
+
+// ------------------
+// column defaults
+// ------------------
+
+[class*='col-'] {
+    .setupCols();
+}
+
+// ------------------
+// cell defaults
+// ------------------
+
+.grid-cell {
+    display: block;
+    .flex(1,1,auto);
+}
+
+// ------------------
+// actually make the grid
+// ------------------
+
+.makeGrid(col-);
+
+@media (min-width: @xs) {
+    .makeGrid(col-xs-);
+}
+
+@media (min-width: @sm) {
+    .makeGrid(col-sm-);
+}
+
+@media (min-width: @md) {
+    .makeGrid(col-md-);
+}
+
+@media (min-width: @lg) {
+    .makeGrid(flex-lg-);
+}
+
+@media (min-width: @xl) {
+    .makeGrid(col-xl-);
+}
+
+// ------------------
+// auto column generation
+// ------------------
+
+.col-auto {
+    .setupAutoCols();
+}
+
+@media (min-width: @xs) {
+    .col-xs-auto {
+        .setupAutoCols();
+    }
+}
+
+@media (min-width: @sm) {
+    .col-sm-auto {
+        .setupAutoCols();
+    }
+}
+
+@media (min-width: @md) {
+    .col-md-auto {
+        .setupAutoCols();
+    }
+}
+
+@media (min-width: @lg) {
+    .col-lg-auto {
+        .setupAutoCols();
+    }
+}
+
+@media (min-width: @xl) {
+    .col-xl-auto {
+        .setupAutoCols();
+    }
+}

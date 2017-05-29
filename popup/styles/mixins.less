@@ -1,0 +1,91 @@
+.actionBackground(@color, @hover: 0.9, @active: 0.8) {
+    .transition(background);
+    background: @color;
+    cursor: pointer;
+    &:hover {background: @color*@hover}
+    // &:active {background: @color*@active}
+}
+.actionColor(@color, @hover: 0.9, @active: 0.8) {
+    color: @color;
+    .transition(color);
+    cursor: pointer;
+    &:hover {
+        color: @color*@hover;
+    }
+    &:active {
+        color: @color*@active;
+    }
+}
+.animateBorder(@color) {
+    hr {
+        border: none;
+        border-bottom: solid 1px @color;
+        margin-bottom: 0;
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        .transition();
+    }
+}
+.colors(@background, @color) {
+    background: @background;
+    color: @color;
+}
+.card(@level: 1) {
+    & when (@level = 1) {
+        box-shadow: 0 1px 4px rgba(37, 50, 56, 0.12), 0 1px 3px rgba(37, 50, 56, 0.24);
+    }
+    & when (@level = 2) {
+        box-shadow: 0 3px 6px rgba(37, 50, 56, 0.16), 0 3px 6px rgba(37, 50, 56, 0.23);
+        // box-shadow: 0 1px 2px rgba(43,59,93,.29),0 0 13px rgba(43,59,93,.29);
+    }
+    & when (@level = 3) {
+        box-shadow: 0 10px 20px rgba(37, 50, 56, 0.19), 0 6px 6px rgba(37, 50, 56, 0.23);
+    }
+    & when (@level = 4) {
+        box-shadow: 0 14px 28px rgba(37, 50, 56, 0.25), 0 10px 10px rgba(37, 50, 56, 0.22);
+    }
+    & when (@level = 5) {
+        box-shadow: 0 19px 38px rgba(37, 50, 56, 0.30), 0 15px 12px rgba(37, 50, 56, 0.22);
+    }
+}
+.fixed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+}
+.hidden  {
+    display:none!important;
+}
+.invisible  {
+    opacity:0!important;
+}
+.size(@width, @height: @width) {
+    width: @width;
+    height: @height;
+}
+.sizePadding(@yFactor: 1, @xFactor: 1) {
+    padding: @defaultSpacing * @yFactor @defaultSpacing * @xFactor;
+}
+.sizeMargin(@factor: 1) {
+    margin: @defaultSpacing * @factor;
+}
+.sizeMargin(@yFactor: 1, @xFactor: 1) {
+    margin: @defaultSpacing * @yFactor @defaultSpacing * @xFactor;
+}
+.transform(@value) {
+    -webkit-transform: @value;
+    -moz-transform:    @value;
+    -ms-transform:     @value;
+    -o-transform:      @value;
+    transform:         @value;
+}
+.transition(@transitionProperty:all, @durationTime:@defaultDuration, @transitionType: @easeIn, @transitionDelay: @defaultDelay) {
+    transition: @transitionProperty @durationTime @transitionType;
+    transition-duration: @durationTime;
+    transition-delay: @transitionDelay;
+}
+

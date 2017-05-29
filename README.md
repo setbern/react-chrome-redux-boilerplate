@@ -58,4 +58,4 @@ Configure reducers in `background/reducers`
 The background page programatically injects any required content scripts via `background/index.js`
 Scripts are injected when browser tabs are created or changed ( basically whenever you change url ).
 
-###Huge shout out to @tshaddix! Much of this is based off examples given at SoCal Talk and ract-chrome-redux
+###Huge shout out to @tshaddix! Much of this is based off examples given at SoCal Talk and react-chrome-redux

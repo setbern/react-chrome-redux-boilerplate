@@ -11,7 +11,7 @@ class App extends Component {
 	    return (
 	      <div>
 	        Click Count: {this.props.count}
-	        hello world AWDHJAKIODHAUIWDHAIOUWDHIUAWDHUIh
+	        Setlife Chrome
 	      </div>
     	);
   }
