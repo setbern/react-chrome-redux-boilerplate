@@ -17,11 +17,7 @@ class App extends Component {
   }
 
   render() {
-    return (
-      <div>
-        Welcome to Setlife Chrome Extension Boilerplate
-      </div>
-    );
+    return null;
   }
 }
 

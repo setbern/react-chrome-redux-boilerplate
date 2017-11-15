@@ -49,19 +49,50 @@
         box-shadow: 0 19px 38px rgba(37, 50, 56, 0.30), 0 15px 12px rgba(37, 50, 56, 0.22);
     }
 }
-.fixed {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    width: 100%;
-    height: 100%;
+.visible  {
+    display:inherit!important;
+    opacity: 1!important;
 }
 .hidden  {
     display:none!important;
 }
 .invisible  {
     opacity:0!important;
+}
+.overlay, .fixed  {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    width: 100%;
+    height: 100%;
+}
+.overlay-animation {
+    .overlay-enter {
+      opacity: 0.01;
+      .transition(opacity, .25s, ease-in, .3s)
+    }
+
+    .overlay-enter.overlay-enter-active {
+      opacity: 1;
+    }
+
+    .overlay-leave {
+      opacity: 1;
+      .transition(opacity, .25s, ease-out)
+      
+    }
+
+    .overlay-leave.overlay-leave-active {
+      opacity: 0.01;
+
+    }
+}
+.primary {
+    color: @primary;
+}
+.secondary {
+    color: @secondary;
 }
 .size(@width, @height: @width) {
     width: @width;
@@ -76,6 +107,9 @@
 .sizeMargin(@yFactor: 1, @xFactor: 1) {
     margin: @defaultSpacing * @yFactor @defaultSpacing * @xFactor;
 }
+.textShadow {
+    text-shadow: 1px 0px 1px #ccc, 0px 1px 1px #eee, 2px 1px 1px #ccc, 1px 2px 1px #eee, 3px 2px 1px #ccc, 2px 3px 1px #eee;
+}
 .transform(@value) {
     -webkit-transform: @value;
     -moz-transform:    @value;
@@ -88,4 +122,3 @@
     transition-duration: @durationTime;
     transition-delay: @transitionDelay;
 }
-

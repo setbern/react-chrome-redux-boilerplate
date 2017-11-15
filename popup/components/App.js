@@ -12,6 +12,7 @@ class App extends Component {
 	      <div>
 	        Click Count: {this.props.count}
 	        Setlife Chrome
+            
 	      </div>
     	);
   }

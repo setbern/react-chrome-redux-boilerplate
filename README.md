@@ -54,7 +54,7 @@ The background page manages the redux store and communication between the conten
 Redux store resides in `background/index.js`
 Configure reducers in `background/reducers`
 
-##Content script development
+##Content Script development
 The background page programatically injects any required content scripts via `background/index.js`
 Scripts are injected when browser tabs are created or changed ( basically whenever you change url ).
 
