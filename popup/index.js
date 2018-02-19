@@ -1,25 +1,23 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './components/App.js';
-import Test from './components/Test.js';
-import Routes from './Routes.js';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import { Store } from 'react-chrome-redux';
+import { Router, browserHistory } from 'react-router'
+
+import Routes from './Routes';
 
 import './styles/index.less';
 
-import {Provider} from 'react-redux';
-import {Store} from 'react-chrome-redux';
-import { Router, Route, Link, browserHistory } from 'react-router'
-
 
 const proxyStore = new Store({
-  portName: 'example'
+    portName: 'careerscore'
 });
 
-
-
-ReactDOM.render( 
-	<Provider store={proxyStore}>
-		<Router history={browserHistory}>
-			{Routes}
-		</Router>
-	</Provider> , document.getElementById('container'));
+render( 
+    <Provider store={proxyStore}>
+        <Router history={browserHistory}>
+            {Routes}
+        </Router>
+    </Provider>,
+    document.getElementById('container')
+);

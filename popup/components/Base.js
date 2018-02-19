@@ -1,4 +1,4 @@
-Base.jsimport React from 'react';
+import React from 'react';
 
 export default class Base extends React.Component {
     autoBind(...methods) {

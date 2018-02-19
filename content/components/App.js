@@ -1,30 +1,28 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-  }
+    constructor(props) {
+        super(props);
+    }
 
-  componentDidMount() {
-    //basic clicker to log redux is working across platform
-    document.addEventListener('click', () => {
-      console.log('testing')
-      this.props.dispatch({
-        type: 'ADD_COUNT'
-      });
-    });
-  }
+    componentDidMount() {
+        document.addEventListener('click', () => {
+            console.log('testing')
+            this.props.dispatch({
+                type: 'ADD_COUNT'
+            });
+        });
+    }
 
-  render() {
-    return null;
-  }
+    render() {
+        return null;
+    }
 }
 
 const mapStateToProps = (state) => {
-  return {
-    count: state.count
-  };
+    return {
+    };
 };
 
 export default connect(mapStateToProps)(App);

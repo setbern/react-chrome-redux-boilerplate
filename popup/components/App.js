@@ -1,28 +1,24 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 class App extends Component {
-	constructor(props){
-		super(props)
-	}
-	render() {
-		console.log(this.props);
-	    return (
-	      <div>
-	        Click Count: {this.props.count}
-	        Setlife Chrome
-            
-	      </div>
-    	);
-  }
+    constructor(props) {
+        super(props)
+    }
+    render() {
+        console.log(this.props);
+        return (
+            <div className='App'>
+            </div>
+        );
+    }
 }
 
 
 const mapStateToProps = (state) => {
-  return {
-    count: state.count
-  };
+    return {
+    };
 };
 
 export default connect(mapStateToProps)(App);

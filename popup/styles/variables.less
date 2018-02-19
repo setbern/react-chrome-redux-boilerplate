@@ -1,10 +1,10 @@
-
-
-//space
-@smSpace: 8px;
-@mdSpace: 16px;
-@lgSpace: 24px;
-@xlSpace: 32px;
+// breakpoints
+@xs: 480px;
+@sm: 768px;
+@md: 992px;
+@st: 1080px;
+@lg: 1200px;
+@xl: 1600px;
 
 // buttons
 @buttonHeight: 5rem;
@@ -12,23 +12,19 @@
 @roundButtonSize: 2.75rem;
 
 // fonts
-@defaultFontSize: 1.25rem;
-@defaultLineHeight: 1.65rem;
-
-// spacing
-@defaultSpacing: 0.8rem;
-@default-rem: 0.8rem;
-@def-rem: 0.8rem;
-@sm-rem: 0.5rem;
-@md-rem: 1.3rem;
-@lg-rem: 2rem;
-@xlg-rem: 5rem;
+@defaultFontSize: 1rem;
+@defaultLineHeight: 1.5rem;
 
 // factors
-@tinyFactor: 0.45;
-@smallFactor: 0.6;
-@mediumFactor: 1;
-@largeFactor: 2.25;
+@smallFactor: 0.75;
+@mediumFactor: 1.25;
+@largeFactor: 1.5;
+
+// spacing
+@baseRem: 0.75rem;
+@smallRem: @baseRem * @smallFactor;
+@mediumRem: @baseRem * @mediumFactor;
+@largeRem: @baseRem * @largeFactor;
 
 // default component sizing
 @windowWidth: 100vw;

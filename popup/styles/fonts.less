@@ -1,5 +1,5 @@
 // fonts
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Roboto,Raleway');
 
 @font-face {
     font-family: AvenirLight;
@@ -28,64 +28,45 @@ h1, h2, h3, h4, h5, h6, p {
 
 // display 3
 h1 {
-    font-family: 'Roboto', sans-serif;
-    font-size: @defaultFontSize * 2;
-    line-height: @defaultLineHeight * 2;
+    .sizeFont(2);
 }
 // display 2
 h2 {
-    font-family: 'Roboto', sans-serif;
-    font-size: @defaultFontSize * 1.8;
-    line-height: @defaultLineHeight * 1.8;
+    .sizeFont(1.8);
 }
 // display 1
 h3 {
-    font-family: 'Roboto', sans-serif;
-    font-size: @defaultFontSize * 1.6;
-    line-height: @defaultLineHeight * 1.6;
+    .sizeFont(1.6);
 }
 // header
 h4 {
-    font-family: 'Roboto', sans-serif;
-    font-size: @defaultFontSize * 1.4;
-    line-height: @defaultLineHeight * 1.4;
+    .sizeFont(1.4);
 }
 // title
 h5 {
-    font-family: 'Roboto', sans-serif;
-    font-size: @defaultFontSize * 1.2;
-    line-height: @defaultLineHeight * 1.2;
+    .sizeFont(1.2);
 }
 // button
 h6 {
-    font-family: 'Roboto', sans-serif;
-    font-size: @defaultFontSize;
-    line-height: @defaultLineHeight;
+    .sizeFont;
 }
 // text
-p {
-    font-family: 'Roboto', sans-serif;
-    font-size: @defaultFontSize;
-    line-height: @defaultLineHeight;
+p, span {
+    .sizeFont;
 }
 
 .smallFont {
-    font-family: 'Roboto', sans-serif;
-    font-size: @defaultFontSize * @smallFactor;
-    line-height: @defaultLineHeight * @smallFactor;
+    .sizeFont(@smallFactor);
 }
 .mediumFont {
-    font-family: 'Roboto', sans-serif;
-    font-size: @defaultFontSize * @mediumFactor;
-    line-height: @defaultLineHeight * @mediumFactor;
+    .sizeFont(@mediumFactor);
 }
 .largeFont {
-    font-family: 'Roboto', sans-serif;
-    font-size: @defaultFontSize * @largeFactor;
-    line-height: @defaultLineHeight * @largeFactor;
+    .sizeFont(@largeFactor);
 }
 .sizeFont(@factor: 1) {
     font-family: 'Roboto', sans-serif;
     font-size: @defaultFontSize * @factor;
     line-height: @defaultLineHeight * @factor;
+    font-weight: 100;
 }
